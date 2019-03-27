@@ -1,10 +1,9 @@
 class CreateTicketTypes < ActiveRecord::Migration[5.2]
   def change
     create_table :ticket_types do |t|
+      t.references :venue, foreign_key: true
       t.integer :price
       t.string :category
-      t.belongs_to :user
-      t.belongs_to :event_information
 
       t.timestamps
     end

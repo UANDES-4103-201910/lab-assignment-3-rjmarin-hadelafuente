@@ -1,2 +1,0 @@
-class TicketOrder < ApplicationRecord
-end

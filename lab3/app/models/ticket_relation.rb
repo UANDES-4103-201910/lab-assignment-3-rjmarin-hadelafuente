@@ -1,2 +1,0 @@
-class TicketRelation < ApplicationRecord
-end
