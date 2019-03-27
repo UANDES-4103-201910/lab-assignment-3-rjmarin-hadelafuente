@@ -3,6 +3,7 @@ class CreateTicketRelations < ActiveRecord::Migration[5.2]
     create_table :ticket_relations do |t|
       t.belongs_to :ticket_order
       t.belongs_to :ticket_type
+      t.belongs_to :user
 
       t.timestamps
     end
