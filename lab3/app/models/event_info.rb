@@ -2,7 +2,7 @@ class EventInfo < ApplicationRecord
   belongs_to :venue
 
   def most_ticket_sold
-    most = EventInfo.select('event:information.*, count(ticket_order_id) as count').group(:ticket_order_id).order(count).last
+    most = EventInfo.select('event_infos.*, count(ticket_order_id) as count').group(:ticket_order_id).order(count).last
     return most
   end
 
