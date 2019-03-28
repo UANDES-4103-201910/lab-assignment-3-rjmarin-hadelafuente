@@ -1,3 +1,3 @@
 class Order < ApplicationRecord
-  belongs_to :ticket_type
+  has_many :ticket_type
 end
