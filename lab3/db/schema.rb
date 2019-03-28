@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 2019_03_28_143710) do
   end
 
   create_table "ticket_relations", force: :cascade do |t|
-    t.integer "ticket_type_id"
+    t.integer "user_id"
     t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "count"
     t.index ["order_id"], name: "index_ticket_relations_on_order_id"
-    t.index ["ticket_type_id"], name: "index_ticket_relations_on_ticket_type_id"
+    t.index ["user_id"], name: "index_ticket_relations_on_user_id"
   end
 
   create_table "ticket_types", force: :cascade do |t|

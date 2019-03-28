@@ -1,4 +1,4 @@
 class TicketRelation < ApplicationRecord
-  belongs_to :user
+  has_many :ticket_type
   belongs_to :order
 end
