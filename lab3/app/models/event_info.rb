@@ -1,5 +1,6 @@
 class EventInfo < ApplicationRecord
   belongs_to :venue
+  has_many :ticket_type
 
   def most_ticket_sold
     most = EventInfo.select('event_infos.*, count(ticket_order_id) as count').group(:ticket_order_id).order(count).last
