@@ -3,12 +3,16 @@ class EventInfo < ApplicationRecord
   has_many :ticket_type
 
   def most_ticket_sold
-    most = EventInfo.select('event_infos.*, count(ticket_order_id) as count').group(:ticket_order_id).order(count).last
-    return most
+    tickets = TicketRelation.joins("Order").select('order.event_info_id sum(count) as sum').where(order_id: order.id)
+                  .group(:order.event_info_id).order(sum).last
+    return tickets
+
   end
 
+
   def highest_revenue
-    event = TicketType.select('ticket_type.* , SUM(price) as sum').group(:event_id).order(sum).last
+    highest = Order.select('event_info_id , SUM(amount_payed) as sum').group(:event_info_id).order(sum).last
+    event = EventInfo.find(highest.event_info_id)
     return event
   end
 end
